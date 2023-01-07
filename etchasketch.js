@@ -4,6 +4,7 @@ const sizeButton = document.querySelector('.changeSize');
 
 const rowDiv = [];
 const colDiv = [];
+let size = 16;
 
 function createGrid(dimension = 16) {
     
@@ -19,7 +20,10 @@ function createGrid(dimension = 16) {
             
             colDiv[x] = document.createElement('div');
             rowDiv[i].appendChild(colDiv[x]);
-            colDiv[x].classList.add('cell')
+            colDiv[x].classList.add('cell');
+            colDiv[x].addEventListener('mouseover', function(e) {
+                e.target.classList.add('hovered');
+            });
 
         }
 
@@ -38,8 +42,18 @@ function deleteGrid() {
     }
 }
 
-resetButton.addEventListener('click', () => createGrid());
-sizeButton.addEventListener('click', function (e) {
-    let size = prompt("Please enter a positive number between 1 and 100:");
+function resetGrid() {
     createGrid(size);
+}
+
+resetButton.addEventListener('click', resetGrid);
+sizeButton.addEventListener('click', function (e) {
+    size = prompt("Please enter a positive number between 2 and 100:");
+    
+    // while (!(size >= 2 && size <= 100)) {
+    //     size = prompt("Please try again. Enter a positive number between 2 and 100:");       
+    // }
+
+    createGrid(size);
+     
 });

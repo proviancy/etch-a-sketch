@@ -39,3 +39,7 @@ button {
     flex: 1;
     border: 1px black;
 }
+
+.hovered {
+    background-color: black;
+}
