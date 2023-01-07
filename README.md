@@ -4,5 +4,7 @@ Plan:
     - Content on bottom
     - Menu on top
 2. Code ability to change number of squares
+    - Create rows
+    - Create columns
 3. Add CSS for changing color of squares
 4. Add extra features, if desired
